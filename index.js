@@ -4,8 +4,9 @@ const db = require('./dbase');
 
 
 const app = express()
-app.use(express.json());
 const port = 3000;
+app.use(express.json());
+
 
 const mongodb = mongose
 .connect("mongodb+srv://vsaravananc:Flutteratlas@shoes.dsvlo.mongodb.net/chatmessage?retryWrites=true&w=majority&appName=shoes")
@@ -13,7 +14,7 @@ const mongodb = mongose
     app.listen(port)
 )
 
-app.post('/'
+app.post("/"
     ,async(req,res) =>{
         const creatdb = await db.create(req.body);
         res.status(200).json(creatdb);
